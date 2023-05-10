@@ -24,9 +24,23 @@ function App() {
     })
 
   }
+  function fetchApi2() {
+    axios.post(`http://localhost:8000/testdata`, {name:"durgesh"})
+    .then(function (response) {
+      // handle success
+      console.log(response);
+      setRecipes(response.data);
+      setSearch("")
+    })
+    .catch(function (error) {
+      // handle error
+      console.log(error);
+    })
+
+  }
 
   useEffect(() => {
-    fetchApi()
+    fetchApi2()
   }, [])
 
   function newSubmit(e) {
